@@ -101,13 +101,15 @@ def get_chain():
 
 
 #Corriendo el app
-app.run(host='0.0.0.0', port='5000')
+app.run(host='192.168.100.89', port='5000')
 
-
-
-        
-        
-        
+@app.route('/is_valid', methods = ['GET'])
+def is_valid():
+    is_valid = blockchain.is_chain_valid(blockchain.chain)
+    if is_valid:
+        response = {'message':'Todo bien. El blockchain es valido'}
+    else:
+        response = {'message':'El blockchain no es valido'}
         
 
 
